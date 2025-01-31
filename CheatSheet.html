@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://blog.onfvp.com/post/volatility-cheatsheet/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<title>Volatility 3 CheatSheet - onfvpBlog [Ashley Pearson]</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="generator" content="Hugo 0.54.0">
+<meta itemprop="name" content="Volatility 3 CheatSheet">
+<meta itemprop="description" content="Comparing commands from Vol2 &gt; Vol3">
+
+
+<meta itemprop="datePublished" content="2021-05-10T00:00:00+00:00">
+<meta itemprop="dateModified" content="2021-05-10T00:00:00+00:00">
+<meta itemprop="wordCount" content="778">
+
+  <meta itemprop="image" content="https://blog.onfvp.com/img/2021/05/Volatility-Cover.jpg">
+
+
+
+<meta itemprop="keywords" content="blog,infosec,memoryforensics,memory,volatility,">
+<meta property="og:title" content="Volatility 3 CheatSheet">
+<meta property="og:description" content="Comparing commands from Vol2 &gt; Vol3">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.onfvp.com/post/volatility-cheatsheet/">
+
+<meta property="og:image" content="https://blog.onfvp.com/img/2021/05/Volatility-Cover.jpg">
+<meta property="article:published_time" content="2021-05-10T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-05-10T00:00:00+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.onfvp.com/img/2021/05/Volatility-Cover.jpg">
+
+<meta name="twitter:title" content="Volatility 3 CheatSheet">
+<meta name="twitter:description" content="Comparing commands from Vol2 &gt; Vol3">
+<meta name="twitter:site" content="@onfvp">
+<link rel="stylesheet" href="./CheatSheet_files/bundle.min.14c1a2678dfebab43596f3f097154a874c412219241a1249bbe7efc756727254.css" integrity="sha256-FMGiZ43+urQ1lvPwlxVKh0xBIhkkGhJJu+fvx1ZyclQ=">
+        <link rel="stylesheet" href="./CheatSheet_files/add-on.css">
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="https://blog.onfvp.com/">
+        
+          
+            post
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        
+          
+          
+            <a href="https://blog.onfvp.com/" class="link"><i class="fa fa-home"></i> Home</a>
+          
+        
+      
+        
+          
+          
+            <a href="https://blog.onfvp.com/about/" class="link"><i class="far fa-id-card"></i> About</a>
+          
+        
+      
+        
+          
+          
+            <a href="https://blog.onfvp.com/resources/" class="link"><i class="fas fa-tools"></i> Resources</a>
+          
+        
+      
+        
+          
+          
+            <a href="https://blog.onfvp.com/categories/" class="link"><i class="fas fa-sitemap"></i> Categories</a>
+          
+        
+      
+      <a href="https://blog.onfvp.com/post/volatility-cheatsheet/#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="https://blog.onfvp.com/post/volatility-cheatsheet/#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="https://blog.onfvp.com/post/volatility-cheatsheet/#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="https://twitter.com/share?text=Volatility%203%20CheatSheet&amp;url=https%3a%2f%2fblog.onfvp.com%2fpost%2fvolatility-cheatsheet%2f" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.onfvp.com%2fpost%2fvolatility-cheatsheet%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.onfvp.com%2fpost%2fvolatility-cheatsheet%2f&amp;title=Volatility%203%20CheatSheet" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.onfvp.com%2fpost%2fvolatility-cheatsheet%2f&amp;title=Volatility%203%20CheatSheet" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="https://blog.onfvp.com/"><img src="./CheatSheet_files/bio.jpg" class="hexagon" width="" alt="onfvp"></a>
+  <header>
+    <h1>Ashley Pearson</h1>
+  </header>
+  <main>
+    <p>A Basic DFIR Blog</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+        <li><a href="https://github.com/onfvp" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+<li><a href="https://gitlab.com/onfvp" target="_blank" rel="noopener" title="GitLab" class="fab fa-gitlab"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="https://linkedin.com/in/pearsonai" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="https://twitter.com/onfvp" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+      <h2><a href="https://blog.onfvp.com/post/volatility-cheatsheet/">Volatility 3 CheatSheet</a></h2>
+    
+    
+      <p>Comparing commands from Vol2 &gt; Vol3</p>
+    
+  </div>
+  <div class="meta">
+    <time class="published" datetime="2021-05-10 00:00:00 +0000 UTC">
+      May 10, 2021
+    </time>
+    <span class="author">Ashley Pearson</span>
+    
+      <p>4 minutes read</p>
+    
+  </div>
+</header>
+
+  <section id="socnet-share">
+    
+
+
+
+
+  
+    
+    <a href="https://twitter.com/share?text=Volatility%203%20CheatSheet&amp;url=https%3a%2f%2fblog.onfvp.com%2fpost%2fvolatility-cheatsheet%2f" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.onfvp.com%2fpost%2fvolatility-cheatsheet%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.onfvp.com%2fpost%2fvolatility-cheatsheet%2f&amp;title=Volatility%203%20CheatSheet" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.onfvp.com%2fpost%2fvolatility-cheatsheet%2f&amp;title=Volatility%203%20CheatSheet" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+
+  </section>
+  
+  <a href="https://blog.onfvp.com/post/volatility-cheatsheet/" class="image featured">
+    
+      <img src="./CheatSheet_files/Volatility-Cover.jpg" alt="">
+    
+  </a>
+
+
+  <div class="content">
+    <h3 id="volatility-cheatsheet">Volatility CheatSheet</h3>
+
+<p>Below are some of the more commonly used plugins from Volatility 2 and their Volatility 3 counterparts.</p>
+
+<h3 id="os-information">OS Information</h3>
+
+<h4 id="imageinfo">imageinfo</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#imageinfo2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#imageinfo3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="imageinfo2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” imageinfo</p>
+      <p>vol.py -f “/path/to/file” kdbgscan</p>
+    </div>
+    <div id="imageinfo3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.info</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<p>Output differences:<br>
+- Volatility 2: Additional information can be gathered with kdbgscan if an appropriate profile wasn’t found with imageinfo<br>
+- Volatility 3: Includes x32/x64 determination, major and minor OS versions, and kdbg information</p>
+
+<p>Note: This applies for this specific command, but also all others below, Volatility 3 was significantly faster in returning the requested information</p>
+
+<p><br></p>
+
+<h3 id="process-information">Process Information</h3>
+
+<h4 id="pslist">pslist</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#pslist2" aria-expanded="true">Volatility 2</a></li>
+    <li class=""><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#pslist3" aria-expanded="false">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="pslist2" class="tab-pane fade active in">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; pslist</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; psscan</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; pstree</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; psxview</p>
+    </div>
+    <div id="pslist3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.pslist</p>
+      <p>vol.py -f “/path/to/file” windows.psscan</p>
+      <p>vol.py -f “/path/to/file” windows.pstree</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<p>Output differences:<br>
+- Volatility 2: Additional process lists with psxview<br>
+- Volatility 3: Does not include a direct psxview equivalent</p>
+
+<p><br></p>
+
+<h4 id="procdump">procdump</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#procdump2" aria-expanded="true">Volatility 2</a></li>
+    <li class=""><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#procdump3" aria-expanded="false">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="procdump2" class="tab-pane fade active in">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; procdump -p &lt;PID&gt; ‑‑dump-dir=“/path/to/dir”</p>
+    </div>
+    <div id="procdump3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” -o “/path/to/dir” windows.dumpfiles ‑‑pid &lt;PID&gt;</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<p>Output differences:<br>
+- Volatility 2: Just outputs specified PID (or all if not specified)<br>
+- Volatility 3: Dumps exe and associated DLLs</p>
+
+<p><br></p>
+
+<h4 id="memdump">memdump</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#memdump2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#memdump3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="memdump2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; memdump -p &lt;PID&gt; ‑‑dump-dir=“/path/to/dir”</p>
+    </div>
+    <div id="memdump3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” -o “/path/to/dir” windows.memmap ‑‑dump ‑‑pid &lt;PID&gt;</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<h4 id="handles">handles</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#handles2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#handles3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="handles2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; handles -p &lt;PID&gt;</p>
+    </div>
+    <div id="handles3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.handles ‑‑pid &lt;PID&gt;</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<p>Output differences:<br>
+- Volatility 2: Offset(V), PID, handle, access, type, details<br>
+- Volatility 3: PID, process, offset, handlevalue, type, grantedaccess, name</p>
+
+<p><br></p>
+
+<h4 id="dlls">dlls</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#dlls2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#dlls3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="dlls2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; dlllist -p &lt;PID&gt;</p>
+    </div>
+    <div id="dlls3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.dlllist ‑‑pid &lt;PID&gt;</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<p>Output differences:<br>
+- Volatility 2: PID, command line, base, size, loadcount, loadtime, path<br>
+- Volatility 3: PID, process, base, size, name, path, loadtime, file output</p>
+
+<p><br></p>
+
+<h4 id="cmdline">cmdline</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#cmdline2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#cmdline3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="cmdline2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; cmdline</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; cmdscan</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; consoles</p>
+    </div>
+    <div id="cmdline3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.cmdline</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p>Output differences:<br>
+- Volatility 2: process name, PID, commandline; cmdscan includes application, flags, process handle; consoles contains C:\ listing, original titles, screen position and command history information<br>
+- Volatility 3: PID, process name, args</p>
+
+<p><br>
+<br></p>
+
+<h3 id="network-information">Network Information</h3>
+
+<h4 id="netscan">netscan</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#netscan2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#netscan3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="netscan2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; netscan</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; netstat</p><br>
+      <p><strong>XP/2003 SPECIFIC</strong></p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; connscan</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; connections</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; sockscan</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; sockets</p>
+    </div>
+    <div id="netscan3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.netscan</p>
+      <p>vol.py -f “/path/to/file” windows.netstat</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<p>Note: The XP/2003 specific plugins are deprecated and therefore not available in Volatility 3</p>
+
+<p><br>
+<br></p>
+
+<h3 id="registry">Registry</h3>
+
+<h4 id="hivelist">hivelist</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#hivelist2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#hivelist3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="hivelist2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; hivescan</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; hivelist</p>
+    </div>
+    <div id="hivelist3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.registry.hivescan</p>
+      <p>vol.py -f “/path/to/file” windows.registry.hivelist</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<h4 id="printkey">printkey</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#printkey2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#printkey3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="printkey2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; printkey</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; printkey -K “Software\Microsoft\Windows\CurrentVersion”</p>
+    </div>
+    <div id="printkey3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.registry.printkey</p>
+      <p>vol.py -f “/path/to/file” windows.registry.printkey ‑‑key “Software\Microsoft\Windows\CurrentVersion”</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<h4 id="hivedump">hivedump</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#hivedump2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#hivedump3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="hivedump2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile hivedump -o &lt;offset&gt;
+    </p></div>
+    <div id="hivedump3" class="tab-pane fade">
+    <br>
+      <p>I’m not sure if this capability exists in Vol3; however, you may be able to extract registry hives using filedump with the offset</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br>
+<br></p>
+
+<h3 id="files">files</h3>
+
+<h4 id="filescan">filescan</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#filescan2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#filescan3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="filescan2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; filescan</p>
+    </div>
+    <div id="filescan3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.filescan</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<h4 id="filedump">filedump</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#filedump2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#filedump3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="filedump2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; dumpfiles ‑‑dump-dir=“/path/to/dir”</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; dumpfiles ‑‑dump-dir=“/path/to/dir” -Q &lt;offset&gt;</p>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; dumpfiles ‑‑dump-dir=“/path/to/dir” -p &lt;PID&gt;</p>
+    </div>
+    <div id="filedump3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” -o “/path/to/dir” windows.dumpfiles</p>
+      <p>vol.py -f “/path/to/file” -o “/path/to/dir” windows.dumpfiles ‑‑virtaddr &lt;offset&gt;</p>
+      <p>vol.py -f “/path/to/file” -o “/path/to/dir” windows.dumpfiles ‑‑physaddr &lt;offset&gt;</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br>
+<br></p>
+
+<h3 id="miscellaneous">Miscellaneous</h3>
+
+<h4 id="malfind">malfind</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#malfind2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#malfind3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="malfind2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” ‑‑profile &lt;profile&gt; malfind</p>
+    </div>
+    <div id="malfind3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.malfind</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br></p>
+
+<p>Output differences:<br>
+- Volatility 2: PID, process name, address, VAD tags, hexdump, and shellcode<br>
+- Volatility 3: PID, process name, process start, protection, commit charge, privatememory, file output, hexdump disassembly</p>
+
+<p><br></p>
+
+<h4 id="yarascan">yarascan</h4>
+
+<p>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./CheatSheet_files/bootstrap.min.css">
+  <script src="./CheatSheet_files/jquery.min.js.下载"></script>
+  <script src="./CheatSheet_files/bootstrap.min.js.下载"></script>
+
+
+</p><div class="container">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#yarascan2">Volatility 2</a></li>
+    <li><a data-toggle="tab" href="https://blog.onfvp.com/post/volatility-cheatsheet/#yarascan3">Volatility 3</a></li>
+  </ul><p></p>
+
+<p></p><div class="tab-content">
+    <div id="yarascan2" class="tab-pane fade in active">
+    <br>
+      <p>vol.py -f “/path/to/file” yarascan -y “/path/to/file.yar”</p>
+    </div>
+    <div id="yarascan3" class="tab-pane fade">
+    <br>
+      <p>vol.py -f “/path/to/file” windows.vadyarascan ‑‑yara-rules &lt;string&gt;</p>
+      <p>vol.py -f “/path/to/file” windows.vadyarascan ‑‑yara-file “/path/to/file.yar”</p>
+      <p>vol.py -f “/path/to/file” yarascan.yarascan ‑‑yara-file “/path/to/file.yar”</p>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<p><br>
+<br></p>
+
+<h3 id="practice">Practice</h3>
+
+<p>If you’re looking to practice or hone your memory analysis skills, I highly recommend checking out the <a href="https://www.memoryanalysis.net/amf" target="_blank">Art of Memory Forensics</a>. The site links to a few different third party sources to purchase the book.</p>
+
+<p>Additionally, you can download practice memory images <a href="https://www.sendspace.com/pro/dl/yqjezf" target="_blank">Art of Memory Forensics</a>. (Note: This is a direct link to the .zip download!) The Windows memory dump sample001.bin was used to test and compare the different versions of Volatility for this post.</p>
+
+<p>If you’d like a more detailed version of this cheatsheet, I recommend checking out <a href="https://book.hacktricks.xyz/forensics/volatility-examples" target="_blank">HackTricks</a>’ post.</p>
+
+<hr>
+
+<h3 id="sources">Sources</h3>
+
+<ol>
+<li>Andrea Fortuna’s Series: <a href="https://www.andreafortuna.org/2017/06/25/volatility-my-own-cheatsheet-part-1-image-identification/" target="_blank">“Volatility, my own cheatsheet”</a></li>
+<li><a href="https://book.hacktricks.xyz/forensics/volatility-examples" target="_blank">HackTricks Volatility CheatSheet</a></li>
+<li><a href="https://github.com/volatilityfoundation/volatility3" target="_blank">Vol3 Github</a></li>
+<li><a href="https://www.memoryanalysis.net/amf" target="_blank">Art of Memory Forensics</a></li>
+</ol>
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://blog.onfvp.com/categories/memoryforensics">memoryforensics</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://blog.onfvp.com/categories/volatility">volatility</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    
+    
+      <li class="tags">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://blog.onfvp.com/tags/blog">blog</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://blog.onfvp.com/tags/infosec">infosec</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://blog.onfvp.com/tags/memoryforensics">memoryforensics</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://blog.onfvp.com/tags/memory">memory</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://blog.onfvp.com/tags/volatility">volatility</a></li>
+          
+        </ul>
+      </li>
+    
+  
+</ul>
+
+  </footer>
+</article>
+
+
+<div class="pagination">
+  
+    <a href="https://blog.onfvp.com/post/how-to-pass-cissp/" class="button"><div class="previous"><div>How To Pass...CISSP</div></div></a>
+  
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent posts</h1>
+      </header>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="https://blog.onfvp.com/post/volatility-cheatsheet/" class="image featured">
+    
+      <img src="./CheatSheet_files/Volatility-Cover.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h1><a href="https://blog.onfvp.com/post/volatility-cheatsheet/">Volatility 3 CheatSheet</a></h1>
+          <time class="published" datetime="">May 10, 2021</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="https://blog.onfvp.com/post/how-to-pass-cissp/" class="image featured">
+    
+      <img src="./CheatSheet_files/CISSP-Header.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h1><a href="https://blog.onfvp.com/post/how-to-pass-cissp/">How To Pass...CISSP</a></h1>
+          <time class="published" datetime="">August 29, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="https://blog.onfvp.com/post/ctf101/" class="image featured">
+    
+      <img src="./CheatSheet_files/00_Title.JPG" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h1><a href="https://blog.onfvp.com/post/ctf101/">flag{CTF…WTF?}</a></h1>
+          <time class="published" datetime="">June 26, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="https://blog.onfvp.com/post/open-source-threat-hunting/" class="image featured">
+    
+      <img src="./CheatSheet_files/01.JPG" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h1><a href="https://blog.onfvp.com/post/open-source-threat-hunting/">Open Source Threat Hunting</a></h1>
+          <time class="published" datetime="">April 7, 2020</time>
+        </header>
+      </article>
+      
+      
+    </section>
+  
+
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>Threat Hunter &amp; DFIR Enthusiast</p>
+      <footer>
+        <a href="https://blog.onfvp.com/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+        <li><a href="https://github.com/onfvp" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+<li><a href="https://gitlab.com/onfvp" target="_blank" rel="noopener" title="GitLab" class="fab fa-gitlab"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="https://linkedin.com/in/pearsonai" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="https://twitter.com/onfvp" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    
+      © 2021
+      
+        onfvpBlog [Ashley Pearson]
+      
+    . <br>
+    Theme: <a href="https://github.com/pacollins/hugo-future-imperfect-slim" target="_blank" rel="noopener">Hugo Future Imperfect Slim</a><br>A <a href="https://html5up.net/future-imperfect" target="_blank" rel="noopener">HTML5 UP port</a> | Powered by <a href="https://gohugo.io/" title="0.54.0" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="https://blog.onfvp.com/post/volatility-cheatsheet/#" class="fas fa-arrow-up fa-2x" style="display: none;"></a>
+
+
+      <script src="./CheatSheet_files/highlight.pack.js.下载"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="./CheatSheet_files/bundle.min.1bf18373a7475c755a961b32f67425a7fb007e6ee0b9d565ff0c73aa707ed4cd.js.下载" integrity="sha256-G/GDc6dHXHValhsy9nQlp/sAfm7gudVl/wxzqnB+1M0="></script>
+    <script src="./CheatSheet_files/add-on.js.下载"></script>
+    </div>
+  
+
+</body></html>
